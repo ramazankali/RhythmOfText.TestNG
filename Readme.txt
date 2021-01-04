@@ -1,14 +1,18 @@
 
-1- The methods are in the Main/Java/Consol.class
-2- It is assumed that this class will be a Consol type class for static methods Text manipulation, added maybe digit manipulations in other inner classes
-3- It is assumed special characters will not be accepted in words
-4- It is assumed '.' and ',' can be used in sentences
-5- It is assumed it might contain more than 1 sentence. Instead of getting 1st sentence ending with first '.' dot, it collects all the words in entire text.
-6- Test covers zero lenght text comparison
-7- Empty excel data cell will accept "" instead of throwing nullpointer exception to catch the empty sentences. 0 lenght must be entered in excell not to be left empty
-8- Consol.Text.findwords() method generate words and findTheLongestWordsInAText(String text)method generates the lenght and the words equal to this lenght.
-9- A text may contain more than 1 maximum word so method will give a Map<Integer-K,List<String>-V> K=maxLength and Value=List of words whose lengths=K
-10- Tests will run with Data Provider to collect data from the excel sheet under resources/data, you may add new rows under the range
-11- The framework is prepared with TestNg to have maximum Data Driven capability for a Unit Test. Cucumber also possible, with more time availability.
-12- Please run the tests and open the reports package and than open the extentreports.html by a browser to see the reports..
-
+*- The framework is prepared with TestNg to have maximum Data Driven capability for a Unit Test.
+*- Cucumber also possible, with more time availability
+*- Please run the tests and open the reports package and than open the extentreports.html by a browser to see the reports..
+*- You can run the xml suite files as well after adding to the framework in next commits.
+*- Tests will run with Data Provider to collect data from the excel sheet under resources/data, you may add new rows under the range
+*- The methods are in the Main/Java/Consol.class
+*- Tests are in Tests package
+*- It is assumed that this class will be a Consol type class for static methods like Text manipulation. Other inner classes maybe added like Integer, Double manipulation etc..
+*- It is assumed special characters will not be accepted in words
+*- It is assumed '.' and ',' can be used in sentences and are used as word seperators as well.
+*- It is assumed it might contain more than 1 sentence. Instead of getting 1st sentence ending with first '.' dot, it collects all the words in entire text.
+*- Test covers zero lenght text comparison
+*- Empty excel data cell will transfer to Java a "" string instead of throwing nullpointer exception to catch the empty sentences.
+*- 0 value must be entered in excel cells if the expected length is 0, should not be left blank.
+*- Consol.Text.findwords() method generate words as a List<String>
+*- A text may contain more than 1 maximum word so Consol.text.findTheLongestWordsInAText(String text) will give a Map<Integer-K,List<String>-V>
+    K=maxLength and Value=List of words whose lengths=K --> (3,[and,not,..]) (3,[InRhythm,contains])
