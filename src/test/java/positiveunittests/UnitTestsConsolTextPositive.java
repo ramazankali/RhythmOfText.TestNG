@@ -174,4 +174,29 @@ public class UnitTestsConsolTextPositive extends TestBase {
         Assert.assertEquals(3, 3);
     }
 
+    @Test
+    public void TC_0004_ShowAllMethodsPrints(){
+        String text="Jack loves to go to school with items *a/s=d'g!u?";
+
+        System.out.printf("%-35s : %s%n","Original Text",
+                text);
+
+        System.out.printf("%-35s : %s%n","Find Words",
+                Consol.Text.findwords(text));
+
+        System.out.printf("%-35s : %s%n","Find First Longest Word",
+                Consol.Text.findFirstLongestWord(text));
+
+        System.out.printf("%-35s : %s%n","Get All words With Sizes In A Map",
+                Consol.Text.getWordsAsAMapWithSizesInAText(text));
+
+        System.out.printf("%-35s : %s%n","Find Longest Words In A Text",
+                Consol.Text.findTheLongestWordsInAText(text));
+
+        System.out.printf("%-35s : %s%n","Find Lenght Of The Longest Word",
+                Consol.Text.findLenghtOfTheLongestWord(text));
+
+
+    }
+
 }

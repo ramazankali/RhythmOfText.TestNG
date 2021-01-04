@@ -1,4 +1,7 @@
 
+*- You may run the test by running /runcertainclasses.xml   file
+*- Than after run you may see the reports at ./reports/extentreport.html  by opening file in chrome
+
 *- The framework is prepared with TestNg to have maximum Data Driven capability for a Unit Test.
 *- Cucumber also possible, with more time availability
 *- Please run the tests and open the reports package and than open the extentreports.html by a browser to see the reports..
@@ -8,7 +11,7 @@
 *- Tests are in Tests package
 *- It is assumed that this class will be a Consol type class for static methods like Text manipulation. Other inner classes maybe added like Integer, Double manipulation etc..
 *- It is assumed special characters will not be accepted in words
-*- It is assumed '.' and ',' can be used in sentences and are used as word seperators as well.
+*- It is assumed [!?'’.",] can be used in sentences and are used as word seperators as well.
 *- It is assumed it might contain more than 1 sentence. Instead of getting 1st sentence ending with first '.' dot, it collects all the words in entire text.
 *- Test covers zero lenght text comparison
 *- Empty excel data cell will transfer to Java a "" string instead of throwing nullpointer exception to catch the empty sentences.
