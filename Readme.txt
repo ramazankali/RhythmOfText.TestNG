@@ -11,4 +11,5 @@
 10- Tests will run with Data Provider to collect data from the excel sheet under resources/data, you may add new rows under the range
 11- The framework is prepared with TestNg to have maximum Data Driven capability for a Unit Test. Cucumber also possible, with more time availability.
 12- Please run the tests and open the reports package and than open the extentreports.html by a browser to see the reports..
-13-
+13- git remote add origin https://github.com/ramazankali/RhytthmOfText.git
+    git push -u origin master
