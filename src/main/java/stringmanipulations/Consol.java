@@ -24,15 +24,15 @@ public class Consol {
          * It removes all special characters like '/','?','.',''' etc...
          */
         public static List<String> findwords(String text) {
-            text=text.replaceAll("\\W", " ").replaceAll(","," ");
 
-            List<String> wordsList= Arrays.asList(text.split(" "));
-            wordsList=wordsList.
-                    stream().
-                    filter(t->t.replaceAll(" ", "").trim().length()!=0).
-                    collect(Collectors.toList());
+            List<String> listOfWords=
+                    Arrays.
+                            stream(text.replaceAll("[!?'’.\",]", " ").split(" ")).
+                            map(word -> word.replaceAll(" ", "")).
+                            filter(word->word.length() != 0).
+                            collect(Collectors.toList());
 
-            return wordsList;
+            return listOfWords;
         }
 
 
@@ -40,13 +40,22 @@ public class Consol {
          * This method returns the longest word in a text or returns null
          * It removes all special characters like '/','?','.',''' etc...
          */
-        public static String findLongestWord(String text) {
+        public static String findFirstLongestWord(String text) {
 
-            return Arrays.stream(text.replaceAll("\\W", " ").split(" ")).
+            return Arrays.stream(text.replaceAll("[!?'’.\",]", " ").split(" ")).
                     map(word -> word.replaceAll(" ", "")).
                     max(Comparator.comparingInt(String::length)).
                     orElse(null);
         }
+
+        public static int findLenghtOfTheLongestWord(String text) {
+
+            return Arrays.stream(text.replaceAll("[!?'’.\",]", " ").split(" ")).
+                    map(word -> word.replaceAll(" ", "")).
+                    max(Comparator.comparingInt(String::length)).
+                    orElse(null).length();
+        }
+
 
 
         /*
@@ -58,25 +67,28 @@ public class Consol {
          * */
         public static Map<Integer, List<String>> getWordsAsAMapWithSizesInAText(String text) {
 
-            //removes special characters and removes whitespaces in the last step
-            List<String> listOfWords = Arrays.stream(text.replaceAll("\\W", " ").split(" ")).
-                    filter(word -> word.replaceAll(" ", "").length() != 0).
-                    collect(Collectors.toList());
+            //replaces special characters that may be used in a regular sentence
+            // and removes white space in the last step
+            List<String> listOfWords =
+                    Arrays.
+                            stream(text.replaceAll("[!?’'.\",]", " ").split(" ")).
+                            map(word -> word.replaceAll(" ", "")).
+                            filter(word->word.length() != 0).
+                            collect(Collectors.toList());
 
             //Creates the keyset with existing words' lengths
             Set<Integer> keySet = listOfWords.
                     stream().
                     map(String::length).
-                    filter(wordLenght -> wordLenght != 0).
                     collect(Collectors.toSet());
 
             //creates and empty map with keySet same As word lengths and values initialized with an empty ArrayList<String>
             Map<Integer, List<String>> mapOfLengthAndWordLists = new HashMap<>();
             keySet.
                     forEach(length ->
-            {
-                mapOfLengthAndWordLists.put(length, new ArrayList<String>());
-            });
+                    {
+                        mapOfLengthAndWordLists.put(length, new ArrayList<String>());
+                    });
 
             //adds each word to related (key, value) list Map<Length,List<Words>>
             listOfWords.
@@ -101,10 +113,13 @@ public class Consol {
              * removes blank elements
              * */
             List<String> listOfWords =
-                    Arrays.stream(text.replaceAll("\\W", " ").split(" ")).
-                            filter(word -> word.replaceAll(" ", "").length() != 0).
+                    Arrays.
+                            stream(text.replaceAll("[!?'’.\",]", " ").split(" ")).
+                            map(word -> word.replaceAll(" ", "")).
+                            filter(word->word.length() != 0).
                             collect(Collectors.toList());
 
+            //finds the lenghts of the longest word
             int longestWordsLength =listOfWords.isEmpty() ? 0:
                     listOfWords.
                             stream().

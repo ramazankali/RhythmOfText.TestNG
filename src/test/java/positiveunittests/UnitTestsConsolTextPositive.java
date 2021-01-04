@@ -25,31 +25,30 @@ public class UnitTestsConsolTextPositive extends TestBase {
         List<String> actualListOfWords = Consol.Text.findwords(text);
 
         List<String> expectedListOfWords = Arrays.asList(expectedWords.split(",").clone());
-        expectedListOfWords=expectedListOfWords.
+        expectedListOfWords = expectedListOfWords.
                 stream().
-                filter(words->words.replaceAll(" ","").length()!=0).
+                filter(words -> words.replaceAll(" ", "").length() != 0).
                 collect(Collectors.toList());
-       if (expectedListOfWords.isEmpty()&&actualListOfWords.isEmpty()){
-           extentTest.info(String.format("Text after special Character filtering is empty! %s", actualListOfWords.stream().collect(Collectors.joining())));
-       }
-       else {
+        if (expectedListOfWords.isEmpty() && actualListOfWords.isEmpty()) {
+            extentTest.info("Text after special Character filtering is empty!");
+        } else {
 
-           Assert.assertEquals("The number of expectedWords founded by method is incorrect!",
-                   expectedListOfWords.size(),
-                   actualListOfWords.size());
-           extentTest.info(String.format("Expected number of words: %s matches actual number of words: %s",
-                   expectedListOfWords.size(),
-                   actualListOfWords.size()));
+            Assert.assertEquals("The number of expectedWords founded by method is incorrect!",
+                    expectedListOfWords.size(),
+                    actualListOfWords.size());
+            extentTest.info(String.format("Expected number of words: %s matches actual number of words: %s",
+                    expectedListOfWords.size(),
+                    actualListOfWords.size()));
 
-           Collections.sort(actualListOfWords);
-           Collections.sort(expectedListOfWords);
+            Collections.sort(actualListOfWords);
+            Collections.sort(expectedListOfWords);
 
-           expectedListOfWords.stream().filter(t -> !actualListOfWords.contains(t)).forEach(System.out::println);
-           Assert.assertEquals("The expectedWords founded does not match expected list!", expectedListOfWords, actualListOfWords);
+            expectedListOfWords.stream().filter(t -> !actualListOfWords.contains(t)).forEach(System.out::println);
+            Assert.assertEquals("The expectedWords founded does not match expected list!", expectedListOfWords, actualListOfWords);
 
-           extentTest.info(String.format("Expected Words: %s", expectedListOfWords));
-           extentTest.info(String.format("Actual Words  : %8s", actualListOfWords));
-       }
+            extentTest.info(String.format("Expected Words: %s", expectedListOfWords));
+            extentTest.info(String.format("Actual Words  : %8s", actualListOfWords));
+        }
 
     }
 
@@ -77,7 +76,7 @@ public class UnitTestsConsolTextPositive extends TestBase {
             String words) {
 
         extentTest = extentReports.createTest(
-                "TC_0002_UnitTests.InRhythm.Consol.Text.FindTheLongestWordInAText",
+                "Regression Suite 01",
                 "Testing the FindTheLongestWordInAText functionality");
         extentTest.info("Starting Test");
 
@@ -88,10 +87,8 @@ public class UnitTestsConsolTextPositive extends TestBase {
         List<String> expectedListOfWords = Arrays.asList(words.split(",").clone());
 
         if (!actualMapOfWords.isEmpty() &&
-        expectedLenghtOfLongestWord!=0&&
-        !expectedListOfWords.isEmpty()) {
-
-
+                expectedLenghtOfLongestWord != 0 &&
+                !expectedListOfWords.isEmpty()) {
 
 
             //we get the expected words as a string seperated by comma and here we split to create a list of words by splitting with ","
@@ -108,17 +105,20 @@ public class UnitTestsConsolTextPositive extends TestBase {
             extentTest.info(String.format("The method generated a single maximum size as Expected: %d Actual:%d  ", 1, actualMapOfWords.keySet().size()));
 
             //We assert that the keyset (Lenghts) of expected and generated datas are exactly same
-            Assert.assertEquals("Expected and Actual maximum lenghts does not match!", expectedMapOfWords.
-                    keySet().
-                    stream().
-                    findFirst().
-                map(lenght -> lenght).
-        get().
-                            intValue(), actualMapOfWords.keySet().
-                    stream().
-                    findFirst().
-                map(length -> length).
-        get().
+            Assert.assertEquals(
+                    "Expected and Actual maximum lenghts does not match!",
+                    expectedMapOfWords.
+                            keySet().
+                            stream().
+                            findFirst().
+                            map(lenght -> lenght).
+                            get().
+                            intValue(),
+                    actualMapOfWords.keySet().
+                            stream().
+                            findFirst().
+                            map(length -> length).
+                            get().
                             intValue());
 
             extentTest.info(String.format(
@@ -148,8 +148,7 @@ public class UnitTestsConsolTextPositive extends TestBase {
                             collect(Collectors.toList()));
 
             extentTest.info("The method generated correct list of words as expected");
-        }
-        else extentTest.info("There is no words in the text after special character filtering!");
+        } else extentTest.info("There is no words in the text after special character filtering!");
     }
 
     @DataProvider(name = "TC_0002_UnitTestPositiveConsolTextMethodGetWordsAsAMapWithSizesInAText")
@@ -167,6 +166,12 @@ public class UnitTestsConsolTextPositive extends TestBase {
         }
         return obj;
 
+    }
+
+    @Test
+    public void TC_0003_TestForVoid() {
+        System.out.println("This is  sample just for exclude xml file....");
+        Assert.assertEquals(3, 3);
     }
 
 }
