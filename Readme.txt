@@ -1,7 +1,6 @@
 
-*- You may run the test by running /runcertainclasses.xml   file
+*- Tests can be run by /runcertainclasses.xml   file
 *- Than after run you may see the reports at ./reports/extentreport.html  by opening file in chrome
-
 *- The framework is prepared with TestNg to have maximum Data Driven capability for a Unit Test.
 *- Cucumber also possible, with more time availability
 *- Please run the tests and open the reports package and than open the extentreports.html by a browser to see the reports..
