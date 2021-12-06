@@ -2,13 +2,13 @@
 *- Tests can be run by /runcertainclasses.xml   file
 *- Than after run you may see the reports at ./reports/extentreport.html  by opening file in chrome
 *- The framework is prepared with TestNg to have maximum Data Driven capability for a Unit Test.
-*- Cucumber also possible, with more time availability
 *- Please run the tests and open the reports package and than open the extentreports.html by a browser to see the reports..
 *- You can run the xml suite files as well after adding to the framework in next commits.
 *- Tests will run with Data Provider to collect data from the excel sheet under resources/data, you may add new rows under the range
 *- The methods are in the Main/Java/Consol.class
 *- Tests are in Tests package
-*- It is assumed that this class will be a Consol type class for static methods like Text manipulation. Other inner classes maybe added like Integer, Double manipulation etc..
+*- It is assumed that this class will be a Consol type class for static methods like Text manipulation. 
+    Other inner classes maybe added like Integer, Double manipulation etc..
 *- It is assumed special characters will not be accepted in words
 *- It is assumed [!?'’.",] can be used in sentences and are used as word seperators as well.
 *- It is assumed it might contain more than 1 sentence. Instead of getting 1st sentence ending with first '.' dot, it collects all the words in entire text.
